@@ -65,11 +65,10 @@ public class CatFactActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    // Parse the JSON response
+
                     String fact = response.getString("fact");
                     int length = response.getInt("length");
 
-                    // Display the fact in the TextView
                     String catFactText = "Fact: " + fact + "\nLength: " + length;
                     textCatFact.setText(catFactText);
 
@@ -84,7 +83,6 @@ public class CatFactActivity extends AppCompatActivity {
             }
         });
 
-        // Add the request to the RequestQueue
         queue.add(request);
     }
     private void getRandomCatFact2() {
@@ -95,10 +93,9 @@ public class CatFactActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    // Parse the JSON response
+
                     String fact = response.getString("datetime");
 
-                    // Display the fact in the TextView
                     String catFactText = "Date time: " + fact ;
                     textTime.setText(catFactText);
 
@@ -113,7 +110,6 @@ public class CatFactActivity extends AppCompatActivity {
             }
         });
 
-        // Add the request to the RequestQueue
         queue.add(request);
     }
 

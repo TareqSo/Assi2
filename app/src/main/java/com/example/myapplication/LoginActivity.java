@@ -37,18 +37,15 @@ public class LoginActivity extends AppCompatActivity {
         String inputUsername = editTextUsername.getText().toString().trim();
         String inputPassword = editTextPassword.getText().toString().trim();
 
-        // Retrieve stored user data for comparison
         SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
         String storedUsername = preferences.getString("name", "");
         String storedPassword = preferences.getString("password", "");
 
-        // Check login credentials
         if (inputUsername.equals(storedUsername) && inputPassword.equals(storedPassword)) {
             Intent intent = new Intent(this, CatFactActivity.class);
             startActivity(intent);
 
         } else {
-            // Display an error message for unsuccessful login
             Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
         }
     }

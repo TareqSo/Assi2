@@ -44,16 +44,13 @@ public class RegistrationActivity extends AppCompatActivity {
         String inputEmail = editTextEmail.getText().toString().trim();
         String inputPassword = editTextPassword.getText().toString().trim();
 
-        // Validate input fields
         if (inputName.isEmpty() || inputAge.isEmpty() || inputEmail.isEmpty() || inputPassword.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Create a new User object with the entered information
         User newUser = new User(inputName, inputPassword, Integer.parseInt(inputAge), inputEmail);
 
-        // Save user data using SharedPreferences
         SharedPreferences.Editor editor = getSharedPreferences("UserData", MODE_PRIVATE).edit();
         editor.putString("name", newUser.getName());
         editor.putString("password", newUser.getPassword());
@@ -61,12 +58,9 @@ public class RegistrationActivity extends AppCompatActivity {
         editor.putString("email", newUser.getEmail());
         editor.apply();
 
-        // Display a success message
         Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show();
 
-        // Optionally, you can navigate to another activity after registration
-      //  Intent intent = new Intent(RegistrationActivity.this, AnotherActivity.class);
-       // startActivity(intent);
-        finish(); // Close the registration activity to prevent going back to it using the back button
+
+        finish();
     }
 }
